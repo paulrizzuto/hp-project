@@ -360,7 +360,9 @@ function bars(data, category)
         // })
 
     avatars
-        .attr("xlink:href", "../static/images/avatar/albusdumbledore.png")
+        .attr("xlink:href", function(d) {
+            return d.image_url
+        })
         // function(d) {
         // console.log(data)
         // return (d.image_url)})
