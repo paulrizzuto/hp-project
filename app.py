@@ -313,25 +313,6 @@ def hallows_senti():
 
     return jsonify(senti_results)
 
-@app.route("/family")
-def family():
-
-    # Empty list for family data
-    family_data = []
-
-    # Grab family tree data
-    results = db.family_tree.find()
-
-    for result in results:
-        character_info = {
-            "character": result["character"],
-            "image_url": result["image_url"]
-        }
-
-        family_data.append(character_info)
-
-    return jsonify(family_data)
-
 # Run app
 if __name__ == "__main__":
     app.run(debug=True)
