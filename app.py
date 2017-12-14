@@ -229,89 +229,26 @@ def hallows():
 
     return jsonify(hallows_data)
 
-@app.route("/stone_senti")
-def stone_senti():
-    
-    # Grab sentiment results for book 1
-    results = db.books.find()[0]
-
-    stone_results = results["stone"]
-
-    senti_results = stone_results["sentiment"]
-
-    return jsonify(senti_results)
-
-@app.route("/chamber_senti")
-def chamber_senti():
-    
-    # Grab sentiment results for book 2
-    results = db.books.find()[1]
-
-    chamber_results = results["chamber"]
-
-    senti_results = chamber_results["sentiment"]
-
-    return jsonify(senti_results)
-
-@app.route("/prisoner_senti")
-def prisoner_senti():
-    
-    # Grab sentiment results for book 3
-    results = db.books.find()[2]
-
-    prisoner_result = results["prisoner"]
-
-    senti_results = prisoner_result["sentiment"]
-
-    return jsonify(senti_results)
-
-@app.route("/goblet_senti")
-def goblet_senti():
-    
-    # Grab sentiment results for book 4
-    results = db.books.find()[3]
-
-    goblet_results = results["goblet"]
-
-    senti_results = goblet_results["sentiment"]
-
-    return jsonify(senti_results)
-
-@app.route("/phoenix_senti")
-def phoenix_senti():
-    
-    # Grab sentiment results for book 5
-    results = db.books.find()[4]
-
-    phoenix_results = results["phoenix"]
-
-    senti_results = phoenix_results["sentiment"]
-
-    return jsonify(senti_results)
-
-@app.route("/prince_senti")
-def prince_senti():
-    
-    # Grab sentiment results for book 6
-    results = db.books.find()[5]
-
-    prince_results = results["prince"]
-
-    senti_results = prince_results["sentiment"]
-
-    return jsonify(senti_results)
-
-@app.route("/hallows_senti")
-def hallows_senti():
+@app.route("/senti")
+def senti():
     
     # Grab sentiment results for book 7
-    results = db.books.find()[6]
+    results = db.sentiment.find()[0]
 
-    hallows_results = results["hallows"]
+    pages = results["pages_overall"]
+    books = results["book_name"]
+    sentiment_full = results["moving_sentiment_full"]
+    Dumbledore = results["Dumbledore_sentiment"]
+    Snape = results["Snape_sentiment"]
+    Harry = results["Harry_sentiment"]
+    Voldemort = results["Voldemort_sentiment"]
+    chapters = results["chapter_name"]
+    sentiment_positive = results["sentiment_positive"]
+    sentiment_negative = results["sentiment_negative"]
+    Ron = results["Ron_sentiment"]
+    Hermione = results["Hermione_sentiment"]
 
-    senti_results = hallows_results["sentiment"]
-
-    return jsonify(senti_results)
+    return jsonify(pages, books, sentiment_full, Dumbledore, Snape, Harry, Voldemort, chapters, sentiment_positive, sentiment_negative, Ron, Hermione)
 
 # Run app
 if __name__ == "__main__":
