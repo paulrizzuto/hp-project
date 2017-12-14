@@ -5,7 +5,7 @@ html,
 body {
   height: 100%;
   margin: 0;
-  background-image: url("Hogwarts-Castle-Art-2.jpg");
+  background-image: url("images/Hogwarts-Castle-Art-2.jpg");
   background-repeat: repeat-y;
   min-width: width;
 }
