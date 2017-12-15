@@ -11,11 +11,16 @@ body {
 .jumbotron {
     color: rgb(174, 143, 64) !important;
     background-color: rgb(12, 35, 64)!important;
-    width: 1900px;
+    width: 100%;
     
     font-family: 'Julius Sans One', sans-serif;
     padding-bottom: 25px;
 }
+
+#svg-area {
+    margin-left: 100px;
+}
+
 .row-categories {
     padding-left: 250px;
     padding-top: 50px;
