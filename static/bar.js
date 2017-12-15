@@ -656,7 +656,13 @@ function init() {
         })
 
     //make the bars
+    //investigate 
     console.log(data)
+    // if (data === undefined) {
+    //     console.log("here")
+    //     window.location.reload(true);
+    // }
+    // else {
     bars(data.sort(function (a, b) {
         return ((b.last_appearance - b.first_appearance)- (a.last_appearance - a.first_appearance));
       }))
