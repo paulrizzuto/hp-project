@@ -455,6 +455,17 @@ function select(category) {
 
 function init() {
 
+    var data;
+    
+    function doSomethingWithData() {
+      console.log(data);
+    }
+    
+    d3.json("/full", function(jsondata) {
+      data = jsondata;
+      doSomethingWithData();
+    })
+
     var xScale = d3.scale.linear()
         .domain([0, 199])
         .range([0, chartWidth]);
