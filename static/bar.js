@@ -455,16 +455,16 @@ function select(category) {
 
 function init() {
 
-    var data;
+    // var data;
     
-    function doSomethingWithData() {
-      console.log(data);
-    }
+    // function doSomethingWithData() {
+    //   console.log(data);
+    // }
     
-    d3.json("/full", function(jsondata) {
-      data = jsondata;
-      doSomethingWithData();
-    })
+    // d3.json("/full", function(jsondata) {
+    //   data = jsondata;
+    //   doSomethingWithData();
+    // })
 
     var xScale = d3.scale.linear()
         .domain([0, 199])
