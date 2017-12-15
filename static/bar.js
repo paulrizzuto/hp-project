@@ -40,8 +40,6 @@ var deatheaters = ["Voldemort", "Barty Croach Jr.", "Lucius Malfoy", "Bellatrix 
 
 var category = "Initial"
 
-
-
 var lines = [1, 17, 35, 57, 94, 132, 161, 199]
 
 var sslines = []
@@ -55,7 +53,11 @@ var dhlines = []
 function bars(data, category)
 {     
     max = 199
+
+    var barsLength = data.length
     
+    console.log(barsLength)
+
     //scales
     scale = d3.scale.linear()
         .domain([0, 199])
@@ -88,9 +90,9 @@ function bars(data, category)
         .attr("x1", function(d) { return scale(d) + 75; })
         .attr("x2", function(d) { return scale(d) + 75; })
         .attr("y1", 5)
-        .attr("y2", 7750);
-        //next line variable on margin + number of bars
-        // .attr("y2", function(d) { return (d.length * 75) + 150});
+        // .attr("y2", 7750);
+        // next line variable on margin + number of bars
+        .attr("y2", function() { return (barsLength * 75) + 150});
         
 
     var vis = d3.select("#barchart")
@@ -556,85 +558,97 @@ function init() {
        //setup our ui
     d3.select("#gryffindor")
         .on("click", function() {
+            d3.select('.lines').remove()
             select('Gryffindor')
         })   
     d3.select("#slytherin")
         .on("click", function() {
+            d3.select('.lines').remove()
             select('Slytherin')
         })   
     d3.select("#ravenclaw")
         .on("click", function() {
+            d3.select('.lines').remove()
             select('Ravenclaw')
         })
     d3.select("#hufflepuff")
         .on("click", function() {
+            d3.select('.lines').remove()
             select('Hufflepuff')
         })
     d3.select("#staff")
         .on("click", function() {
+            d3.select('.lines').remove()
             select('Staff')
         }) 
     d3.select("#order")
         .on("click", function() {
+            d3.select('.lines').remove()
             select('Order')
         }) 
     d3.select("#ministry")
         .on("click", function() {
+            d3.select('.lines').remove()
             select('Ministry')
         })
     d3.select("#nomag")
         .on("click", function() {
+            d3.select('.lines').remove()
             select('NoMag')
         }) 
     d3.select("#othermag")
         .on("click", function() {
+            d3.select('.lines').remove()
             select('OtherMag')
         }) 
     d3.select("#deatheaters")
         .on("click", function() {
+            d3.select('.lines').remove()
             select('DeathEaters')
         })      
     d3.select("#main")
         .on("click", function() {
+            d3.select('.lines').remove()
             select('Initial')
         })
-    d3.select('#ss_switch') 
-        .on("click", function() {
-            // bookSwitch()
-            select('Initial')
-        })
-    d3.select('#cos_switch') 
-        .on("click", function() {
-            // bookSwitch()
-            select('Initial')
-        })
-    d3.select('#poa_switch') 
-        .on("click", function() {
-            // bookSwitch()
-            select('Initial')
-        })
-    d3.select('#gof_switch') 
-        .on("click", function() {
-            // bookSwitch()
-            select('Initial')
-        })
-    d3.select('#ootp_switch') 
-        .on("click", function() {
-            // bookSwitch()
-            select('Initial')
-        })
-    d3.select('#hbp_switch') 
-        .on("click", function() {
-            // bookSwitch()
-            select('Initial')
-        })
-    d3.select('#dh_switch') 
-        .on("click", function() {
-            // bookSwitch()
-            select('Initial')
-        })
+    // d3.select('#ss_switch') 
+    //     .on("click", function() {
+    //         // bookSwitch()
+    //         select('Initial')
+    //     })
+    // d3.select('#cos_switch') 
+    //     .on("click", function() {
+    //         // bookSwitch()
+    //         select('Initial')
+    //     })
+    // d3.select('#poa_switch') 
+    //     .on("click", function() {
+    //         // bookSwitch()
+    //         select('Initial')
+    //     })
+    // d3.select('#gof_switch') 
+    //     .on("click", function() {
+    //         // bookSwitch()
+    //         select('Initial')
+    //     })
+    // d3.select('#ootp_switch') 
+    //     .on("click", function() {
+    //         // bookSwitch()
+    //         select('Initial')
+    //     })
+    // d3.select('#hbp_switch') 
+    //     .on("click", function() {
+    //         // bookSwitch()
+    //         select('Initial')
+    //     })
+    // d3.select('#dh_switch') 
+    //     .on("click", function() {
+    //         // bookSwitch()
+    //         select('Initial')
+    //     })
     d3.select('.add_character')
         .on("click", function() {
+            d3.select('.lines').remove()
             input = document.getElementById('searchBar').value.toUpperCase();
             // filter = input.value.toUpperCase();
             console.log(input)
