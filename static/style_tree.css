@@ -11,7 +11,7 @@ body {
 .jumbotron {
     color: rgb(174, 143, 64) !important;
     background-color: rgb(12, 35, 64)!important;
-    width: 1900px;
+    width: 100% !important;
     
     font-family: 'Julius Sans One', sans-serif;
     padding-bottom: 25px;

@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Harry Potter</title>
+    <title>HP Project</title>
 
     <!-- Latest compiled and minified CSS & JS -->
     <script
@@ -22,9 +22,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
     
     <script src="https://d3js.org/d3.v4.min.js"></script>
-    <script src="../static/bar.js"></script>
     <script type="text/javascript" src="http://mbostock.github.com/d3/d3.js"></script>
-
     <link rel="stylesheet" href="../static/style.css">
     <link href="https://fonts.googleapis.com/css?family=Julius+Sans+One" rel="stylesheet">
 
@@ -33,54 +31,35 @@
     
 </head>
 <body>
-    <div class="jumbotron">
-        <div class="head">
-            <h1>THE <img src="../static/images/HPlogo.jpg" style="width: 140px;"> PROJECT</h1>
+    <div class="hero-image">
+        <div class="hero-text">
+            <a href="/timeline"><h1>THE <img src="../static/images/HPlogo.jpg" style="width: 140px;"> PROJECT</h1></a>
         </div>
-        <div class="container">
-            <div class="row-categories">
-                <div class="col-md-3">
-                    <h4 class="timeline"> <a href="/timeline">TIMELINE</a> </h4> 
-                </div> 
-                <div class="col-md-3">
-                    <h4 class="tree"> <a href="/tree">FAMILY TREE</a></h4> 
-                </div>     
-                <div class="col-md-3">
-                    <h4 class="sentiment"> <a href="/sentiment">SENTIMENT</a></h4> 
-                </div>     
-                <div class="col-md-3">
-                    <h4 class="about"> <a href="/about">ABOUT</a></h4> 
-                </div>  
-            </div>
-        </div>  
     </div>
-    <div id="chart"></div>
-    <div class="row one">
-            <div class="col-lg-1"> 
-                <input type="text" id="searchBar" class="form-control pull-left mx-sm-3" placeholder="Character Name">
+
+    <!-- <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-2">
+                <div class="navbar-header">
+                    <img id="nav-img" src="../static/images/HPlogo.jpg" alt="">
+                </div>
             </div>
-            <div class="col-lg-1"> 
-                <button type="button" class="add_character btn btn-default pull-left">Add</button>
+            <div class="col-md-2">
+                <h4 class="timeline"> <a href="/timeline">TIMELINE</a> </h4> 
             </div>
-    </div>  
-    <div class="btn-group-vertical">
-        <button id="main" title="Main Characters" class="btn btn-default btn-lg maincrew" style="height: 70px; width:120px; font-size:14px;"><img src="../static/images/main.png" style="width: 40px;"></button>
-        <button id="gryffindor" title="Gryffindor" class="btn btn-default btn-lg gryffindor" style="height: 70px; width:120px; font-size:14px;"><img src="../static/images/gryffindor.svg" style="width: 40px;"></button>
-        <button id="slytherin" title="Slytherin" class="btn btn-default btn-lg slytherin" style="height: 70px; width:120px; font-size:14px;"><img src="../static/images/slytherin.svg" style="width: 40px;"></button>
-        <button id="ravenclaw" title="Ravenclaw" class="btn btn-default btn-lg ravenclaw" style="height: 70px; width:120px; font-size:14px;"><img src="../static/images/ravenclaw.svg" style="width: 40px;"></button>
-        <button id="hufflepuff" title="Hufflepuff" class="btn btn-default btn-lg hufflepuff" style="height: 70px; width:120px; font-size:14px;"><img src="../static/images/hufflepuff.svg" style="width: 40px;"></button>
-        <button id="staff" title="Hogwarts Staff" class="btn btn-default btn-lg staff" style="height: 70px; width:120px; font-size:14px;"><img src="../static/images/staff.png" style="width: 40px;"></button>
-        <button id="deatheaters" title="Deatheaters" class="btn btn-default btn-lg deatheaters" style="height: 70px; width:120px; font-size:14px;"><img src="../static/images/darkmark.png" style="width: 60px;"></button>
-        <button id="order" title="Order of the Phoenix" class="btn btn-default btn-lg staff" style="height: 70px; width:120px; font-size:14px;"><img src="../static/images/order.png" style="width: 60px;"></button>
-        <button id="ministry" title="Ministry of Magic" class="btn btn-default btn-lg staff" style="height: 70px; width:120px; font-size:14px;"><img src="../static/images/ministry.png" style="width: 40px;"></button>
-        <button id="othermag" title="Other Magical Characters" class="btn btn-default btn-lg staff" style="height: 70px; width:120px; font-size:14px;"><img src="../static/images/othermag.png" style="width: 40px;"></button>
-        <button id="nomag" title="Muggles" class="btn btn-default btn-lg staff" style="height: 70px; width:120px; font-size:14px;"><img src="../static/images/nomag.png" style="width: 40px;"></button>
-    </div>
+            <div class="col-md-2">
+                <h4 class="tree"><a href="/tree">FAMILY TREE</a></h4>
+            </div>
+            <div class="col-md-2">
+                <h4 class="sentiment"><a href="/sentiment">SENTIMENT ANALYSIS</a></h4>
+            </div>
+            <div class="col-md-2">
+                <h4 class="about"><a href="/about">ABOUT US</a></h4>
+            </div>
+        </div>
+    </div> -->
+
     
-    
-    <script type="text/javascript">
-        init();
-    </script>  
     
 </body>
 </html>
