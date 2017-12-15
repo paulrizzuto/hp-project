@@ -716,7 +716,7 @@ svg
     .attr("y1", 50)
     .attr("x2", 1390)
     .attr("y2", 50)
-    .attr("style", "stroke:rgb(255,0,0);stroke-width:2")
+    .attr("style", "stroke:rgb(174, 143, 64);stroke-width:2")
 
 // Lily Potter
 svg
