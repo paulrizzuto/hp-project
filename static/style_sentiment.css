@@ -79,8 +79,30 @@ body {
 
 .btn-primary:focus,.btn-primary:active {
    outline: none !important;
+   box-shadow: none !important;
+   background: rgb(12, 35, 64) !important;
 }
+
+.btn-default:focus,.btn-default:active {
+    outline: none !important;
+    box-shadow: none !important;
+ }
 
 canvas {
   float: left;
+}
+
+.btn-default { background: rgb(255, 255, 255) !important;
+    outline: none !important;
+    box-shadow: none !important;
+}
+
+.btn-primary { background: rgb(12, 35, 64) !important;
+    outline: none !important;
+    box-shadow: none !important;
+}
+
+.btn-default:hover, .btn-default:active {
+    background-color: rgb(224, 224, 224) !important;
+    text-decoration: none;
 }

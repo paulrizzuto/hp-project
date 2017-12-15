@@ -263,8 +263,9 @@ def senti():
     sentiment_negative = results["sentiment_negative"]
     Ron = results["Ron_sentiment"]
     Hermione = results["Hermione_sentiment"]
+    trendline = results["trendline"]
 
-    return jsonify(pages, books, sentiment_full, Dumbledore, Snape, Harry, Voldemort, chapters, sentiment_positive, sentiment_negative, Ron, Hermione)
+    return jsonify(pages, books, sentiment_full, Dumbledore, Snape, Harry, Voldemort, chapters, sentiment_positive, sentiment_negative, Ron, Hermione, trendline)
 
 # Run app
 if __name__ == "__main__":
