@@ -22,11 +22,12 @@ body {
     padding-top: 50px;
 }
 .col-md-3 a:hover, .col-md-3 li a:active {
-    color: black !important;
+    color: rgb(146, 146, 146) !important;
     text-decoration: none;
 }
+
 .col-md-3 a, .col-md-3 li a:visited {
-    color: rgb(146, 146, 146) !important;
+    color: rgb(174, 143, 64) !important;
 }
 .head {
     text-align: center;

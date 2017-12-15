@@ -14,6 +14,22 @@ db = client.heroku_bs24rhck
 def home():
     return render_template("index.html")
 
+@app.route("/about")
+def about():
+    return render_template("pages/about.html")
+
+@app.route("/sentiment")
+def sentiment():
+    return render_template("pages/sentiment.html")
+
+@app.route("/timeline")
+def timeline():
+    return render_template("pages/timeline.html")
+
+@app.route("/tree")
+def tree():
+    return render_template("pages/tree.html")
+
 @app.route("/full")
 def full():
 
