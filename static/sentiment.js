@@ -1,3 +1,7 @@
+// set variable dict's of yticks + change initial yticks for full
+
+
+
 var data;
 var pages_overall;
 var book_names;
@@ -11,7 +15,10 @@ var sentiment_pos;
 var sentiment_neg;
 var Ron;
 var Hermione;
+var trendline;
 var config;
+var yticks_full;
+var yticks_character;
 
 function doSomethingWithData() {
   console.log(sentiment_pos);
@@ -32,6 +39,7 @@ d3.json("/senti", function(jsondata) {
   sentiment_neg = data[9];
   Ron = data[10];
   Hermione = data[11];
+  trendline = data[12];
   doSomethingWithData();
 
 
@@ -51,7 +59,7 @@ Chart.pluginService.register({
 });
 
 var dataset1_full = {
-            label: "Positive Sentiment",
+            label: "Sentiment",
             backgroundColor: 'rgb(174, 143, 64)',
             borderColor: 'rgb(174, 143, 64)',
             borderWidth: 0,
@@ -59,7 +67,7 @@ var dataset1_full = {
         };
 
 var dataset2_full = {
-            label: "Negative Sentiment",
+            label: "Sentiment",
             backgroundColor: 'rgb(12, 35, 64)',
             borderColor: 'rgb(12, 35, 64)',
             borderWidth: 0,
@@ -67,51 +75,51 @@ var dataset2_full = {
         };
 
 var dataset_harry = {
-            label: "Harry's cumulative sentiment",
-            backgroundColor: 'rgb(174, 143, 64)',
+            label: "Cumulative Sentiment",
+            backgroundColor: 'rgba(174, 143, 64, 0.75)',
             borderColor: 'rgb(12, 35, 64)',
             borderWidth: 1.5,
             data: Harry,
         };
 
 var dataset_ron = {
-            label: "Ron's cumulative sentiment",
-            backgroundColor: 'rgb(174, 143, 64)',
+            label: "Cumulative Sentiment",
+            backgroundColor: 'rgba(174, 143, 64, 0.75)',
             borderColor: 'rgb(12, 35, 64)',
             borderWidth: 1.5,
             data: Ron,
         };
 
 var dataset_hermione = {
-            label: "Hermione's cumulative sentiment",
-            backgroundColor: 'rgb(174, 143, 64)',
+            label: "Cumulative Sentiment",
+            backgroundColor: 'rgba(174, 143, 64, 0.75)',
             borderColor: 'rgb(12, 35, 64)',
             borderWidth: 1.5,
             data: Hermione,
         };
 
 var dataset_dumbledore = {
-            label: "Dumbledore's cumulative sentiment",
-            backgroundColor: 'rgb(174, 143, 64)',
+            label: "Cumulative Sentiment",
+            backgroundColor: 'rgba(174, 143, 64, 0.75)',
             borderColor: 'rgb(12, 35, 64)',
             borderWidth: 1.5,
             data: Dumbledore,
         };
 
-var dataset_voldemort = {
-            label: "Voldemort's cumulative sentiment",
-            backgroundColor: 'rgb(174, 143, 64)',
-            borderColor: 'rgb(12, 35, 64)',
-            borderWidth: 1.5,
-            data: Voldemort,
-        };
-
 var dataset_snape = {
-            label: "Snape's cumulative sentiment",
-            backgroundColor: 'rgb(174, 143, 64)',
+            label: "Cumulative Sentiment",
+            backgroundColor: 'rgba(174, 143, 64, 0.75)',
             borderColor: 'rgb(12, 35, 64)',
             borderWidth: 1.5,
             data: Snape,
+        };
+
+var dataset_voldemort = {
+            label: "Cumulative Sentiment",
+            backgroundColor: 'rgba(174, 143, 64, 0.75)',
+            borderColor: 'rgb(12, 35, 64)',
+            borderWidth: 1.5,
+            data: Voldemort,
         };
 
 var ctx = document.getElementById('myChart').getContext('2d');
@@ -123,14 +131,14 @@ var config_default = {
     data: {
         labels: pages_overall,
         datasets: [{
-            label: "Positive Sentiment",
+            label: "Sentiment",
             backgroundColor: 'rgb(174, 143, 64)',
             borderColor: 'rgb(174, 143, 64)',
             borderWidth: 0,
             data: sentiment_pos,
         },
         {
-            label: "Negative Sentiment",
+            label: "Sentiment",
             backgroundColor: 'rgb(12, 35, 64)',
             borderColor: 'rgb(12, 35, 64)',
             borderWidth: 0,
@@ -168,6 +176,11 @@ var config_default = {
                 gridLines: {
                     display: false
                 },
+                ticks: {
+                    max: 0.6,
+                    min: -0.6,
+                    maxTicksLimit: 8
+                },
                 scaleLabel: {
                     display: true,
                     labelString: 'Sentiment',
@@ -182,12 +195,27 @@ var config_default = {
         },
         legend: {
             display: false
+        },
+        tooltips: {
+            mode: 'nearest',
+            intersect: false,
+            callbacks: {
+                title: function() {
+                    return '';
+                },
+                beforeLabel: function(tooltipItem, data) { 
+                    //return formatted date
+                    return ["Book: " + book_names[(tooltipItem.xLabel)-1].replace("Harry Potter and the ", ""),
+                    "Chapter: " + chapter_names[(tooltipItem.xLabel)-1]];
+                }
+            }
         }
     }
 };
 
 var config = config_default;
 var sentimentChart = new Chart(ctx, config);
+console.log(config);
 
 document.getElementById('books').addEventListener('click', function() {
     var elements = document.getElementsByClassName('btn');
@@ -198,10 +226,12 @@ document.getElementById('books').addEventListener('click', function() {
     var element = document.getElementById('books');
     element.classList.remove("btn-default");
     element.classList.add("btn-primary");
-    config.data.datasets.splice(0,2)
+    config.data.datasets.splice(0,3);
     config.data.datasets.push(dataset1_full);
     config.data.datasets.push(dataset2_full);
     config.options.title.text = 'Harry Potter Sentiment Analysis (100-page moving average)';
+    config.options.scales.yAxes[0].ticks.max = 0.6;
+    config.options.scales.yAxes[0].ticks.min = -0.6;
     sentimentChart.update();
     console.log(config);
 });
@@ -215,9 +245,11 @@ document.getElementById('harry').addEventListener('click', function() {
     var element = document.getElementById('harry');
     element.classList.remove("btn-default");
     element.classList.add("btn-primary");
-    config.data.datasets.splice(0,2)
+    config.data.datasets.splice(0,3);
     config.data.datasets.push(dataset_harry);
     config.options.title.text = 'Cumulative Sentiment (for pages Harry appears on)';
+    config.options.scales.yAxes[0].ticks.max = 275;
+    config.options.scales.yAxes[0].ticks.min = -150;
     sentimentChart.update();
     console.log(config);
 });
@@ -231,9 +263,11 @@ document.getElementById('ron').addEventListener('click', function() {
     var element = document.getElementById('ron');
     element.classList.remove("btn-default");
     element.classList.add("btn-primary");
-    config.data.datasets.splice(0,2)
+    config.data.datasets.splice(0,3);
     config.data.datasets.push(dataset_ron);
     config.options.title.text = 'Cumulative Sentiment (for pages Ron appears on)';
+    config.options.scales.yAxes[0].ticks.max = 275;
+    config.options.scales.yAxes[0].ticks.min = -150;
     sentimentChart.update();
     console.log(config);
 });
@@ -247,9 +281,11 @@ document.getElementById('hermione').addEventListener('click', function() {
     var element = document.getElementById('hermione');
     element.classList.remove("btn-default");
     element.classList.add("btn-primary");
-    config.data.datasets.splice(0,2)
+    config.data.datasets.splice(0,3);
     config.data.datasets.push(dataset_hermione);
     config.options.title.text = 'Cumulative Sentiment (for pages Hermione appears on)';
+    config.options.scales.yAxes[0].ticks.max = 275;
+    config.options.scales.yAxes[0].ticks.min = -150;
     sentimentChart.update();
     console.log(config);
 });
@@ -263,25 +299,11 @@ document.getElementById('dumbledore').addEventListener('click', function() {
     var element = document.getElementById('dumbledore');
     element.classList.remove("btn-default");
     element.classList.add("btn-primary");
-    config.data.datasets.splice(0,2)
+    config.data.datasets.splice(0,3);
     config.data.datasets.push(dataset_dumbledore);
     config.options.title.text = 'Cumulative Sentiment (for pages Dumbledore appears on)';
-    sentimentChart.update();
-    console.log(config);
-});
-
-document.getElementById('voldemort').addEventListener('click', function() {
-    var elements = document.getElementsByClassName('btn');
-    Array.prototype.forEach.call(elements, function(x) {
-        x.classList.remove("btn-primary");
-        x.classList.add("btn-default");
-    })
-    var element = document.getElementById('voldemort');
-    element.classList.remove("btn-default");
-    element.classList.add("btn-primary");
-    config.data.datasets.splice(0,2)
-    config.data.datasets.push(dataset_voldemort);
-    config.options.title.text = 'Cumulative Sentiment (for pages Voldemort appears on)';
+    config.options.scales.yAxes[0].ticks.max = 275;
+    config.options.scales.yAxes[0].ticks.min = -150;
     sentimentChart.update();
     console.log(config);
 });
@@ -295,9 +317,29 @@ document.getElementById('snape').addEventListener('click', function() {
     var element = document.getElementById('snape');
     element.classList.remove("btn-default");
     element.classList.add("btn-primary");
-    config.data.datasets.splice(0,2)
+    config.data.datasets.splice(0,3);
     config.data.datasets.push(dataset_snape);
     config.options.title.text = 'Cumulative Sentiment (for pages Snape appears on)';
+    config.options.scales.yAxes[0].ticks.max = 275;
+    config.options.scales.yAxes[0].ticks.min = -150;
+    sentimentChart.update();
+    console.log(config);
+});
+
+document.getElementById('voldemort').addEventListener('click', function() {
+    var elements = document.getElementsByClassName('btn');
+    Array.prototype.forEach.call(elements, function(x) {
+        x.classList.remove("btn-primary");
+        x.classList.add("btn-default");
+    })
+    var element = document.getElementById('voldemort');
+    element.classList.remove("btn-default");
+    element.classList.add("btn-primary");
+    config.data.datasets.splice(0,3);
+    config.data.datasets.push(dataset_voldemort);
+    config.options.title.text = 'Cumulative Sentiment (for pages Voldemort appears on)';
+    config.options.scales.yAxes[0].ticks.max = 275;
+    config.options.scales.yAxes[0].ticks.min = -150;
     sentimentChart.update();
     console.log(config);
 });
