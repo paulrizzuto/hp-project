@@ -76,7 +76,7 @@ var dataset2_full = {
 
 var dataset_harry = {
             label: "Cumulative Sentiment",
-            backgroundColor: 'rgba(174, 143, 64, 0.75)',
+            backgroundColor: 'rgba(174, 143, 64, 0.5)',
             borderColor: 'rgb(12, 35, 64)',
             borderWidth: 1.5,
             data: Harry,
@@ -84,7 +84,7 @@ var dataset_harry = {
 
 var dataset_ron = {
             label: "Cumulative Sentiment",
-            backgroundColor: 'rgba(174, 143, 64, 0.75)',
+            backgroundColor: 'rgba(174, 143, 64, 0.5)',
             borderColor: 'rgb(12, 35, 64)',
             borderWidth: 1.5,
             data: Ron,
@@ -92,7 +92,7 @@ var dataset_ron = {
 
 var dataset_hermione = {
             label: "Cumulative Sentiment",
-            backgroundColor: 'rgba(174, 143, 64, 0.75)',
+            backgroundColor: 'rgba(174, 143, 64, 0.5)',
             borderColor: 'rgb(12, 35, 64)',
             borderWidth: 1.5,
             data: Hermione,
@@ -100,7 +100,7 @@ var dataset_hermione = {
 
 var dataset_dumbledore = {
             label: "Cumulative Sentiment",
-            backgroundColor: 'rgba(174, 143, 64, 0.75)',
+            backgroundColor: 'rgba(174, 143, 64, 0.5)',
             borderColor: 'rgb(12, 35, 64)',
             borderWidth: 1.5,
             data: Dumbledore,
@@ -108,7 +108,7 @@ var dataset_dumbledore = {
 
 var dataset_snape = {
             label: "Cumulative Sentiment",
-            backgroundColor: 'rgba(174, 143, 64, 0.75)',
+            backgroundColor: 'rgba(174, 143, 64, 0.5)',
             borderColor: 'rgb(12, 35, 64)',
             borderWidth: 1.5,
             data: Snape,
@@ -116,7 +116,7 @@ var dataset_snape = {
 
 var dataset_voldemort = {
             label: "Cumulative Sentiment",
-            backgroundColor: 'rgba(174, 143, 64, 0.75)',
+            backgroundColor: 'rgba(174, 143, 64, 0.5)',
             borderColor: 'rgb(12, 35, 64)',
             borderWidth: 1.5,
             data: Voldemort,
@@ -197,6 +197,7 @@ var config_default = {
             display: false
         },
         tooltips: {
+            bodyFontSize: 14,
             mode: 'nearest',
             intersect: false,
             callbacks: {
@@ -226,7 +227,7 @@ document.getElementById('books').addEventListener('click', function() {
     var element = document.getElementById('books');
     element.classList.remove("btn-default");
     element.classList.add("btn-primary");
-    config.data.datasets.splice(0,3);
+    config.data.datasets.splice(0,2);
     config.data.datasets.push(dataset1_full);
     config.data.datasets.push(dataset2_full);
     config.options.title.text = 'Harry Potter Sentiment Analysis (100-page moving average)';
@@ -245,7 +246,7 @@ document.getElementById('harry').addEventListener('click', function() {
     var element = document.getElementById('harry');
     element.classList.remove("btn-default");
     element.classList.add("btn-primary");
-    config.data.datasets.splice(0,3);
+    config.data.datasets.splice(0,2);
     config.data.datasets.push(dataset_harry);
     config.options.title.text = 'Cumulative Sentiment (for pages Harry appears on)';
     config.options.scales.yAxes[0].ticks.max = 275;
@@ -263,7 +264,7 @@ document.getElementById('ron').addEventListener('click', function() {
     var element = document.getElementById('ron');
     element.classList.remove("btn-default");
     element.classList.add("btn-primary");
-    config.data.datasets.splice(0,3);
+    config.data.datasets.splice(0,2);
     config.data.datasets.push(dataset_ron);
     config.options.title.text = 'Cumulative Sentiment (for pages Ron appears on)';
     config.options.scales.yAxes[0].ticks.max = 275;
@@ -281,7 +282,7 @@ document.getElementById('hermione').addEventListener('click', function() {
     var element = document.getElementById('hermione');
     element.classList.remove("btn-default");
     element.classList.add("btn-primary");
-    config.data.datasets.splice(0,3);
+    config.data.datasets.splice(0,2);
     config.data.datasets.push(dataset_hermione);
     config.options.title.text = 'Cumulative Sentiment (for pages Hermione appears on)';
     config.options.scales.yAxes[0].ticks.max = 275;
@@ -299,7 +300,7 @@ document.getElementById('dumbledore').addEventListener('click', function() {
     var element = document.getElementById('dumbledore');
     element.classList.remove("btn-default");
     element.classList.add("btn-primary");
-    config.data.datasets.splice(0,3);
+    config.data.datasets.splice(0,2);
     config.data.datasets.push(dataset_dumbledore);
     config.options.title.text = 'Cumulative Sentiment (for pages Dumbledore appears on)';
     config.options.scales.yAxes[0].ticks.max = 275;
@@ -317,7 +318,7 @@ document.getElementById('snape').addEventListener('click', function() {
     var element = document.getElementById('snape');
     element.classList.remove("btn-default");
     element.classList.add("btn-primary");
-    config.data.datasets.splice(0,3);
+    config.data.datasets.splice(0,2);
     config.data.datasets.push(dataset_snape);
     config.options.title.text = 'Cumulative Sentiment (for pages Snape appears on)';
     config.options.scales.yAxes[0].ticks.max = 275;
@@ -335,7 +336,7 @@ document.getElementById('voldemort').addEventListener('click', function() {
     var element = document.getElementById('voldemort');
     element.classList.remove("btn-default");
     element.classList.add("btn-primary");
-    config.data.datasets.splice(0,3);
+    config.data.datasets.splice(0,2);
     config.data.datasets.push(dataset_voldemort);
     config.options.title.text = 'Cumulative Sentiment (for pages Voldemort appears on)';
     config.options.scales.yAxes[0].ticks.max = 275;
