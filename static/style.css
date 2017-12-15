@@ -115,3 +115,9 @@ body {
     padding: 5px;
     text-align: center;
 }
+
+.btn-default:focus,.btn-default:active {
+    outline: none !important;
+    box-shadow: none !important;
+    background: rgb(174, 143, 64) !important;
+ }
