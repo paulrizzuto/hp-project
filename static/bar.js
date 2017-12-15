@@ -8,16 +8,7 @@ var margin = { top: 185, right: 50, bottom: 50, left: 75 };
 var chartWidth = width - margin.left - margin.right;
 var chartHeight = height - margin.top - margin.bottom;
 
-var data;
 
-function doSomethingWithData() {
-  console.log(data);
-}
-
-d3.json("/full", function(jsondata) {
-  data = jsondata;
-  doSomethingWithData();
-})
 
 // d3.json("/full", bars(data))
 
@@ -50,8 +41,21 @@ var ootplines = []
 var hbplines = []
 var dhlines = []
 
+var data;
+
+function doSomethingWithData() {
+  console.log(data);
+}
+
+d3.json("/full", function(jsondata) {
+  data = jsondata;
+  doSomethingWithData();
+})
+
 function bars(data, category)
 {     
+
+
     max = 199
 
     var barsLength = data.length
@@ -482,7 +486,7 @@ function init() {
     var svg = d3.select("body")
         .append("svg")
         .attr("width", width)
-        .attr("height", height)
+        .attr("height", height);
 
     svg.append("svg:rect")
         .attr("width", "100%")
