@@ -19,3 +19,7 @@ body {
 a {
     color: rgb(174, 143, 64) !important;
 }
+
+a:hover, a:active {
+    text-decoration: none;
+}
