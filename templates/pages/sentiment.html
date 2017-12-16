@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Harry Potter Sentiment Analysis</title>
+
+    <title>Sentiment Analysis</title>
 
     <!-- Latest compiled and minified CSS & JS -->
     <script
@@ -51,7 +52,7 @@
                     <h4 class="sentiment"> <a href="/sentiment">SENTIMENT</a></h4> 
                 </div>     
                 <div class="col-md-3">
-                    <h4 class="about"> <a href="/about">ABOUT</a></h4> 
+                    <h4 class="about"> <a href="/about">ABOUT US</a></h4> 
                 </div>  
             </div>
         </div>      
@@ -64,15 +65,15 @@
 
                     <button id="harry" class="btn btn-default btn-lg harry" style="height: 70px; width:150px; font-size:14px; font-weight: bold;">HARRY<br>POTTER</button>
 
-                    <button id="ron" class="btn btn-default btn-lg ron" style="height: 70px; width:150px; font-size:14px; font-weight: bold;">RON<br>WEASLEY</button>
+                    <button id="ron" onclick = "clickRon()" class="btn btn-default btn-lg ron" style="height: 70px; width:150px; font-size:14px; font-weight: bold;">RON<br>WEASLEY</button>
 
-                    <button id="hermione" class="btn btn-default btn-lg hermione" style="height: 70px; width:150px; font-size:14px; font-weight: bold;">HERMIONE<br>GRANGER</button>
+                    <button id="hermione" onclick = "clickHermione()" class="btn btn-default btn-lg hermione" style="height: 70px; width:150px; font-size:14px; font-weight: bold;">HERMIONE<br>GRANGER</button>
 
-                    <button id="dumbledore" class="btn btn-default btn-lg dumbledore" style="height: 70px; width:150px; font-size:14px; font-weight: bold;">ALBUS<br>DUMBLEDORE</button>
+                    <button id="dumbledore" onclick = "clickDumbledore()" class="btn btn-default btn-lg dumbledore" style="height: 70px; width:150px; font-size:14px; font-weight: bold;">ALBUS<br>DUMBLEDORE</button>
 
-                    <button id="snape" class="btn btn-default btn-lg snape" style="height: 70px; width:150px; font-size:14px; font-weight: bold;">SEVERUS<br>SNAPE</button>
+                    <button id="voldemort" onclick = "clickVoldemort()" class="btn btn-default btn-lg voldemort" style="height: 70px; width:150px; font-size:14px; font-weight: bold;">LORD<br>VOLDEMORT</button>
 
-                    <button id="voldemort" class="btn btn-default btn-lg voldemort" style="height: 70px; width:150px; font-size:14px; font-weight: bold;">LORD<br>VOLDEMORT</button>
+                    <button id="snape" onclick = "clickSnape()" class="btn btn-default btn-lg snape" style="height: 70px; width:150px; font-size:14px; font-weight: bold;">SEVERUS<br>SNAPE</button>
                 </div>
             </div>
             <div class="col-md-10">

@@ -1,30 +1,54 @@
+
+
+
 html,
 body {
   height: 100%;
   margin: 0;
   background-image: url("images/Hogwarts-Castle-Art-2.jpg");
   background-repeat: repeat-y;
+  min-width: width;
 }
+
 .bar:hover {
-  fill: rgb(0, 0, 0);
+  fill: black;
 }
+
 .jumbotron {
     color: rgb(174, 143, 64) !important;
     background-color: rgb(12, 35, 64)!important;
-    width: 100%;
+    width: 100% !important;
     
     font-family: 'Julius Sans One', sans-serif;
     padding-bottom: 25px;
-}
-
-#svg-area {
-    margin-left: 100px;
-}
+  }
 
 .row-categories {
     padding-left: 250px;
     padding-top: 50px;
 }
+
+/* .thumbnail:hover{
+    position:absolute;
+    /* top: 50%;
+    left: 50%;
+    width:125px;
+    height:auto; */
+    /* display:block;
+    z-index:999;
+    transform: scale(.5); */
+
+
+#searchBar {
+    font-family: 'Julius Sans One', sans-serif;
+    margin-bottom: 10px;
+    margin-left: 20px;
+}
+
+.add_character {
+    font-family: 'Julius Sans One', sans-serif;
+}
+
 .col-md-3 a:hover, .col-md-3 li a:active {
     color: rgb(146, 146, 146) !important;
     text-decoration: none;
@@ -33,12 +57,15 @@ body {
 .col-md-3 a, .col-md-3 li a:visited {
     color: rgb(174, 143, 64) !important;
 }
+
 .head {
     text-align: center;
 }
+
 .container {
     width:100%;
 }
+
 #chart {
   top: 195px;
   position: absolute;
@@ -50,23 +77,32 @@ body {
   background-size: 100% 100%;
   opacity: 0.3;
 } 
+
 /* check the following to make sure it's still needed */
+
 .btn-group-vertical {
-    margin-left: 20px;
+    margin-left: 75px;
     font-family: 'Julius Sans One', sans-serif;
     float:left;
 }
+
+.btn-default { background: rgb(255, 255, 255); }
+
 .lines {
     stroke-width: 2 !important;
     stroke: rgba(0, 0, 0, 0.2) !important;
     opacity: 1 !important;
     stroke-dasharray: 5, 3;
 }
-#avatar {
-    border-radius: 50%;
- }
+
+/* #avatar {
+    border: 15px;
+    float: left;
+ } */
+
+
 .toolTip {
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-family: 12px 'Julius Sans One', sans-serif;
     position: absolute;
     display: none;
     width: auto;
@@ -75,14 +111,7 @@ body {
     border: 0 none;
     border-radius: 8px 8px 8px 8px;
     box-shadow: -3px 3px 15px #888888;
-    color: white;
-    font: 12px sans-serif;
+    color: black;
     padding: 5px;
     text-align: center;
-    background-color: #888888;
-}
-
-h5 {
-    font-weight: bold;
-    text-decoration: underline;
 }

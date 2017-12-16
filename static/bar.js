@@ -43,13 +43,15 @@ var dhlines = []
 
 var data;
 
-function doSomethingWithData() {
-  console.log(data);
-}
+// function doSomethingWithData() {
+//   console.log(data)
+//   init(data);
+// }
 
 d3.json("/full", function(jsondata) {
   data = jsondata;
-  doSomethingWithData();
+  init(data);
+//   doSomethingWithData();
 })
 
 function bars(data, category)
@@ -457,7 +459,7 @@ function select(category) {
     }), category);  
 }
 
-function init() {
+function init(data) {
 
     // var data;
     

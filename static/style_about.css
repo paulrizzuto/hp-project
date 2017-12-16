@@ -4,6 +4,8 @@ body {
   margin: 0;
   background-image: url("images/Hogwarts-Castle-Art-2.jpg");
   background-repeat: repeat-y;
+  color: rgb(174, 143, 64) !important;
+  font-family: 'Julius Sans One', sans-serif;
 }
 .bar:hover {
   fill: rgb(0, 0, 0);
