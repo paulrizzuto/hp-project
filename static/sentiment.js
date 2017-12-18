@@ -1,7 +1,4 @@
-// set variable dict's of yticks + change initial yticks for full
-
-
-
+// Initial variables outside of main function
 var data;
 var pages_overall;
 var book_names;
@@ -20,11 +17,7 @@ var config;
 var yticks_full;
 var yticks_character;
 
-function doSomethingWithData() {
-  console.log(sentiment_pos);
-  console.log(sentiment_neg);
-}
-
+// API request (function holds everything below)
 d3.json("/senti", function(jsondata) {
   data = jsondata;
   pages_overall = data[0];
@@ -40,9 +33,8 @@ d3.json("/senti", function(jsondata) {
   Ron = data[10];
   Hermione = data[11];
   trendline = data[12];
-  doSomethingWithData();
 
-
+// Code for filling chart area under the line
 Chart.pluginService.register({
     beforeDraw: function (chart, easing) {
         if (chart.config.options.chartArea && chart.config.options.chartArea.backgroundColor) {
@@ -58,6 +50,7 @@ Chart.pluginService.register({
     }
 });
 
+// Dataset variables for switching between charts
 var dataset1_full = {
             label: "Sentiment",
             backgroundColor: 'rgb(174, 143, 64)',
@@ -122,8 +115,10 @@ var dataset_voldemort = {
             data: Voldemort,
         };
 
+// Set default chart settings + attach to canvas
 var ctx = document.getElementById('myChart').getContext('2d');
 var config_default = {
+
     // The type of chart we want to create
     type: 'line',
 
@@ -214,10 +209,12 @@ var config_default = {
     }
 };
 
+// Initialize chart
 var config = config_default;
 var sentimentChart = new Chart(ctx, config);
 console.log(config);
 
+// Chart switch functions based on button clicks
 document.getElementById('books').addEventListener('click', function() {
     var elements = document.getElementsByClassName('btn');
     Array.prototype.forEach.call(elements, function(x) {
