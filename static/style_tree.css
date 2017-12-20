@@ -86,3 +86,7 @@ h5 {
     font-weight: bold;
     text-decoration: underline;
 }
+
+a {
+    color: rgb(174, 143, 64) !important;
+}

@@ -106,3 +106,7 @@ canvas {
     background-color: rgb(224, 224, 224) !important;
     text-decoration: none;
 }
+
+a {
+    color: rgb(174, 143, 64) !important;
+}
